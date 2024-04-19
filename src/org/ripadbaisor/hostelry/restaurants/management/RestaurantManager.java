@@ -11,4 +11,11 @@ public class RestaurantManager {
         return JOptionPane.showInputDialog(message);
     }
 
+    public static int askNumber(String message) {
+        while (true) {
+            String input = JOptionPane.showInputDialog(message);
+                return Integer.parseInt(input);
+        }
+    }
+
 }
