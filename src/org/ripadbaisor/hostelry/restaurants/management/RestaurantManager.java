@@ -3,17 +3,17 @@ package org.ripadbaisor.hostelry.restaurants.management;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
+import java.util.List;
 import javax.swing.JOptionPane;
 
 
 public class RestaurantManager {
     private static ArrayList<Restaurant> restaurants = new ArrayList<>();
 
-    public static void addRestaurant(String name2, String location2, String schedule2, int score2) {
+    public static void addRestaurant() {
         String name = JOptionPane.showInputDialog("Ingrese el nagetName del restaurante:");
         String location = JOptionPane.showInputDialog("Ingrese la localización del restaurante:");
-        String schedule = JOptionPane.showInputDialog("Ingrese el horario del restaurante:");
+        String schedule = JOptionPane.showInputDialog("Ingrese el schedule del restaurante:");
         int score = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la puntuación del restaurante (entre 0 y 10):"));
         addRestaurant(name, location, schedule, score);
     }
@@ -34,7 +34,7 @@ public class RestaurantManager {
             if (restaurants.get(i).getName().equals(restaurantSelected)) {
                 String newName = JOptionPane.showInputDialog("Ingrese el nuevo nagetName del restaurante:");
                 String newLocation = JOptionPane.showInputDialog("Ingrese la nueva localización del restaurante:");
-                String newSchedule = JOptionPane.showInputDialog("Ingrese el nuevo horario del restaurante:");
+                String newSchedule = JOptionPane.showInputDialog("Ingrese el nuevo schedule del restaurante:");
                 int newScore = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la nueva puntuación del restaurante (entre 0 y 10):"));
 
                 Restaurant restaurant = restaurants.get(i);
@@ -61,9 +61,9 @@ public class RestaurantManager {
 
         String message = "Lista de restaurants:\n";
         for (Restaurant restaurant : restaurants) {
-            message += "Nombre: " + restaurant.getName() + "\n";
+            message += "name: " + restaurant.getName() + "\n";
             message += "Localización: " + restaurant.getLocation() + "\n";
-            message += "Horario: " + restaurant.getSchedule() + "\n";
+            message += "schedule: " + restaurant.getSchedule() + "\n";
             message += "Puntuación: " + restaurant.getScore() + "\n\n";
         }
         JOptionPane.showMessageDialog(null, message);
@@ -89,6 +89,16 @@ public class RestaurantManager {
             }
         }
         JOptionPane.showMessageDialog(null, "No se encontró el restaurante seleccionado.");
+    }
+
+
+    private static void addRestaurant(String name, String location, String schedule, float score) {
+        Restaurant restaurant = new Restaurant(name, location, schedule, score);
+        restaurants.add(restaurant);
+    }
+
+    public static List<Restaurant> getRestaurants() {
+        return restaurants;
     }
 
 }
