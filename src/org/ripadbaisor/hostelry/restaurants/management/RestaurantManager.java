@@ -1,6 +1,9 @@
 package org.ripadbaisor.hostelry.restaurants.management;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 import javax.swing.JOptionPane;
 
 
@@ -45,6 +48,25 @@ public class RestaurantManager {
             }
         }
         JOptionPane.showMessageDialog(null, "No se encontró el restaurante SelectedrestaurantSelected.");
+    }
+
+
+    public static void showRestaurants() {
+        if (restaurants.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay restaurants almacenados.");
+            return;
+        }
+
+        Collections.sort(restaurants, Comparator.comparing(Restaurant::getScore).reversed());
+
+        String message = "Lista de Restaurantes:\n";
+        for (Restaurant restaurant : restaurants) {
+            message += "Nombre: " + restaurant.getName() + "\n";
+            message += "Localización: " + restaurant.getLocation() + "\n";
+            message += "Horario: " + restaurant.getSchedule() + "\n";
+            message += "Puntuación: " + restaurant.getScore() + "\n\n";
+        }
+        JOptionPane.showMessageDialog(null, message);
     }
 
 }
