@@ -5,11 +5,11 @@ public class Restaurant {
 
     private String name;
     private String location;
-    private int schedule;
+    private String schedule;
     private float score;
 
 
-    public Restaurant(String name, String location, int schedule, float score) {
+    public Restaurant(String name, String location, String schedule, float score) {
         this.name = name;
         this.location = location;
         this.schedule = schedule;
@@ -32,11 +32,11 @@ public class Restaurant {
         this.location = location;
     }
 
-    public int getSchedule() {
+    public String getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(int schedule) {
+    public void setSchedule(String schedule) {
         this.schedule = schedule;
     }
 
