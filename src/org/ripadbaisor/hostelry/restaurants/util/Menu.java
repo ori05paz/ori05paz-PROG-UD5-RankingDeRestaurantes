@@ -1,15 +1,19 @@
 package org.ripadbaisor.hostelry.restaurants.util;
 
+import javax.swing.JOptionPane;
+
 public class Menu {
 
     
-        public static void showMenu() {
-    
-            System.out.println("\nMENÚ" + 
-            "\n1. Añadir restaurante" +
-            "\n2. Editar restaurante" +
-            "\n3. Mostrar restaurantes" +
-            "\n4. Eliminar restaurante" +
-            "\nQ. Salir del programa.");
-        }
+    public static int showMenu() {
+        String menu = "Menú Principal\n\n" +
+                    "1. Agregar restaurante\n" +
+                    "2. Editar restaurante\n" +
+                    "3. Mostrar restaurantes\n" +
+                    "4. Eliminar restaurante\n" +
+                    "Q. Salir del programa";
+        String option = JOptionPane.showInputDialog(null, menu + "\n\nSelecciona una opción:");
+        return Integer.parseInt(option);
+    }
 }
+
