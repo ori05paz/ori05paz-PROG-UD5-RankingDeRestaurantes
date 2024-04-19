@@ -29,9 +29,13 @@ public class App {
                         JOptionPane.showMessageDialog(null, "Opción inválida. Por favor, elige una opción válida.");
                 }
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Error: Ingresa un número entero válido.");
+                JOptionPane.showMessageDialog(null, "Error: Ingresa un número entero válido");
+            } catch (NullPointerException e) {
+                JOptionPane.showMessageDialog(null, "Error: Valor nulo.");
+            } catch (IllegalArgumentException e) {
+                JOptionPane.showMessageDialog(null, "Error: Argumento ilegal");
             } catch (IndexOutOfBoundsException e) {
-                JOptionPane.showMessageDialog(null, "Error: Índice fuera de los límites.");
+                JOptionPane.showMessageDialog(null, "Error: Índice fuera de límites");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Error inesperado: " + e.getMessage());
             }
