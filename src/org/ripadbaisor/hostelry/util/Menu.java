@@ -1,4 +1,4 @@
-package org.ripadbaisor.hostelry.restaurants.util;
+package org.ripadbaisor.hostelry.util;
 
 public class Menu {
 
