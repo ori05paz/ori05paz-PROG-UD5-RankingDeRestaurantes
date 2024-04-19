@@ -59,7 +59,7 @@ public class RestaurantManager {
 
         Collections.sort(restaurants, Comparator.comparing(Restaurant::getScore).reversed());
 
-        String message = "Lista de Restaurantes:\n";
+        String message = "Lista de restaurants:\n";
         for (Restaurant restaurant : restaurants) {
             message += "Nombre: " + restaurant.getName() + "\n";
             message += "Localización: " + restaurant.getLocation() + "\n";
@@ -67,6 +67,28 @@ public class RestaurantManager {
             message += "Puntuación: " + restaurant.getScore() + "\n\n";
         }
         JOptionPane.showMessageDialog(null, message);
+    }
+
+    public static void deleteRestaurants() {
+        if (restaurants.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay restaurantes almacenados para eliminar.");
+            return;
+        }
+
+        String[] namesRestaurants = new String[restaurants.size()];
+        for (int i = 0; i < restaurants.size(); i++) {
+            namesRestaurants[i] = restaurants.get(i).getName();
+        }
+
+        String restaurantSelected = (String) JOptionPane.showInputDialog(null, "Selecciona el restaurante a eliminar:", "Eliminar Restaurante", JOptionPane.QUESTION_MESSAGE, null, namesRestaurants, namesRestaurants[0]);
+        for (int i = 0; i < restaurants.size(); i++) {
+            if (restaurants.get(i).getName().equals(restaurantSelected)) {
+                restaurants.remove(i);
+                JOptionPane.showMessageDialog(null, "Restaurante eliminado correctamente.");
+                return;
+            }
+        }
+        JOptionPane.showMessageDialog(null, "No se encontró el restaurante seleccionado.");
     }
 
 }
