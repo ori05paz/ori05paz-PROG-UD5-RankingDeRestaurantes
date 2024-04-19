@@ -8,6 +8,7 @@ public class App {
         int option;
         do {
             option = Menu.showMenu();
+            try {
                 switch (option) {
                     case 1:
                         RestaurantManager.addRestaurant();
@@ -27,6 +28,13 @@ public class App {
                     default:
                         JOptionPane.showMessageDialog(null, "Opción inválida. Por favor, elige una opción válida.");
                 }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Error: Ingresa un número entero válido.");
+            } catch (IndexOutOfBoundsException e) {
+                JOptionPane.showMessageDialog(null, "Error: Índice fuera de los límites.");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error inesperado: " + e.getMessage());
+            }
         } while (option != 5);
     }
 }
